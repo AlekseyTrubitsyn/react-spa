@@ -1,7 +1,7 @@
 import React from 'react';
 
 function NavigationMenuItem(props) {
-  const className = 'navigation-menu__item' + ((props.active) ? ' navigation-menu__item--active' : '');
+  const linkClassName = 'navigation-menu__button' + ((props.active) ? ' navigation-menu__button--active' : '');
 
   function handleClick(e) {
     e.preventDefault();
@@ -9,8 +9,8 @@ function NavigationMenuItem(props) {
   }
 
   return (
-    <li className={className}>
-      <a href="#" onClick={handleClick} id={props.id}>{props.title}</a>
+    <li className='navigation-menu__item'>
+      <a className={linkClassName} href="#" onClick={handleClick} id={props.id}>{props.title}</a>
     </li>
   )
 }
