@@ -1,10 +1,12 @@
 import React from 'react';
 
-function App({ store }) {
+import NavigationMenuContainer from './containers/NavigationMenuContainer';
+
+function App() {
   return (
-    <main>
-      <p>Hello world!</p>
-    </main>
+    <div>
+      <NavigationMenuContainer />
+    </div>
   );
 }
 
