@@ -5,7 +5,7 @@ import NavigationMenu from '../components/NavigationMenu';
 
 function mapStateToProps(state) {
   return {
-    screens: state
+    screens: state.screens
   }
 }
 

@@ -4,7 +4,7 @@ import Screens from '../components/Screens';
 
 function mapStateToProps(state) {
   return {
-    screens: state
+    screens: state.screens
   }
 }
 

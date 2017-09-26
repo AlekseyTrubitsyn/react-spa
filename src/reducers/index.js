@@ -1,18 +1,11 @@
-import { CHANGE_SCREEN } from '../actions'
+import { combineReducers } from 'redux';
 
-function reducer(state = [], action) {
-  switch (action.type) {
-    case CHANGE_SCREEN:
-      return state.map(item => {
-        if (item.id == action.id) {
-          return Object.assign({}, item, { active: true });
-        }
-        return Object.assign({}, item, { active: false });
-      });
+import screens from './screensReducer';
+import dimensions from './dimensionsReducer';
 
-    default:
-      return state;
-  }
-}
+const reducer = combineReducers({
+  screens,
+  dimensions
+});
 
 export default reducer;

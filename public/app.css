@@ -75,3 +75,53 @@ body > div {
 }
 
 .screen-hide { display: none; }
+
+.polygon-block {
+    display: flex;
+
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.polygon-block__figure { flex-shrink: 0; }
+
+.polygon-block__form fieldset {
+    position: relative;
+
+    max-height: 250px;
+    margin: 5px;
+    padding: 15px;
+
+    text-align: center;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.polygon-block__form--blocked::before {
+    font-size: 1.5em;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    padding: 30px;
+
+    content: 'Регулировка не более 10 вершин!';
+
+    border-radius: 5px;
+    background: rgba(255, 255, 255, .85);
+}
+
+.polygon-block__button {
+    font-size: 1.3em;
+    font-weight: bold;
+    line-height: 1.5em;
+
+    width: 60px;
+
+    vertical-align: middle;
+}

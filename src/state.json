@@ -1,23 +1,33 @@
-[
-  {
-    "id": 1,
-    "title": "Экран №1",
-    "menuTitle": "Экран №1",
-    "link": "screen_1",
-    "active": true
-  },
-  {
-    "id": 2,
-    "title": "Экран №2",
-    "menuTitle": "Экран №2",
-    "link": "screen_2",
-    "active": false
-  },
-  {
-    "id": 3,
-    "title": "Экран №3",
-    "menuTitle": "Экран №3",
-    "link": "screen_3",
-    "active": false
-  }
-]
+{
+  "screens": [
+    {
+      "id": 1,
+      "title": "SVG интерактивный многоугольник",
+      "menuTitle": "SVG Polygon",
+      "link": "screen_1",
+      "active": true
+    },
+    {
+      "id": 2,
+      "title": "Экран №2",
+      "menuTitle": "Экран №2",
+      "link": "screen_2",
+      "active": false
+    },
+    {
+      "id": 3,
+      "title": "Экран №3",
+      "menuTitle": "Экран №3",
+      "link": "screen_3",
+      "active": false
+    }
+  ],
+  "dimensions": [
+    { "id": 1, "value": 100 },
+    { "id": 2, "value": 100 },
+    { "id": 3, "value": 100 },
+    { "id": 4, "value": 100 },
+    { "id": 5, "value": 100 },
+    { "id": 6, "value": 100 }
+  ]
+}
