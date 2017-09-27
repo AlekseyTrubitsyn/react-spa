@@ -89,6 +89,21 @@ body > div {
     align-self: flex-start;
 }
 
+.polygon-block__figure:hover .polygon-block__dot {
+    display: unset;
+}
+
+.polygon-block__dot {
+    display: none;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.polygon-block__dot:hover {
+    opacity: 1;
+    fill: #7CB342;
+}
+
 .polygon-block__fieldset {
     position: relative;
 
@@ -129,4 +144,17 @@ body > div {
     width: 60px;
 
     vertical-align: middle;
+}
+
+.animatedPulse {
+    animation: pulse 1.2s ease;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.3;
+  },
+  20% {
+    opacity: 1;
+  }
 }
