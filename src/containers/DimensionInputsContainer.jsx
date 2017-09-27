@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import {changeDimension } from '../actions';
+import {changeDimension, addDimension, removeDimension } from '../actions';
 import DimensionInputs from '../components/DimensionInputs';
 
 function mapStateToProps(state) {
@@ -11,7 +11,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onChange: (id, value) => { dispatch(changeDimension(id, value)); }
+    onChange: (id, value) => { dispatch(changeDimension(id, value)); },
+    addDimension: () => { dispatch(addDimension()) },
+    removeDimension: () => { dispatch(removeDimension()) }
   }
 }
 

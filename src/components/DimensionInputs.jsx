@@ -4,23 +4,34 @@ import DimensionInput from './DimensionInput';
 
 function DimensionInputs(props) {
   const CLASS_NAME = 'polygon-block';
-  const CLASS_NAME_GROUP = 'polygon-block__form';
   const CLASS_NAME_FORM = 'polygon-block__form';
+  const CLASS_NAME_GROUP = 'polygon-block__fieldset';
   const CLASS_NAME_BUTTON = 'polygon-block__button';
+  const CLASS_NAME_GROUP_OVERFLOWED = 'polygon-block__fieldset--blocked';
 
-  // TODO add class "blocked" for fieldset
-  // TODO add functions addInput and removeInput
+  let overflowed = (props.dimensions.length > 10);
+  let groupClassName = CLASS_NAME_GROUP + ((overflowed) ? (' ' + CLASS_NAME_GROUP_OVERFLOWED) : '');
+
+  function addInput(e) {
+    e.preventDefault();
+    props.addDimension();
+  }
+
+  function removeInput(e) {
+    e.preventDefault();
+    props.removeDimension();
+  }
 
   return (
     <form action="" className={ CLASS_NAME_FORM }>
-      <fieldset>
+      <fieldset className={ CLASS_NAME_GROUP }>
         <button className={ CLASS_NAME_BUTTON }
-                onClick={ props.addInput }>+</button>
+                onClick={ addInput }>+</button>
         <button className={ CLASS_NAME_BUTTON }
-                onClick={ props.removeInput }>-</button>
+                onClick={ removeInput }>-</button>
       </fieldset>
-      <fieldset>
-        {props.dimensions.map(item =>
+      <fieldset className={ groupClassName }>
+        {props.dimensions.slice(0, 10).map(item =>
           <DimensionInput
             key={ item.id }
             id={ item.id }

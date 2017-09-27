@@ -84,9 +84,12 @@ body > div {
     align-items: center;
 }
 
-.polygon-block__figure { flex-shrink: 0; }
+.polygon-block__figure {
+    flex-shrink: 0;
+    align-self: flex-start;
+}
 
-.polygon-block__form fieldset {
+.polygon-block__fieldset {
     position: relative;
 
     max-height: 250px;
@@ -97,10 +100,11 @@ body > div {
 
     border: 1px solid #ddd;
     border-radius: 5px;
+
+    overflow: hidden;
 }
 
-//TODO fix
-.polygon-block__form--blocked::before {
+.polygon-block__fieldset--blocked::before {
     font-size: 1.5em;
 
     position: absolute;

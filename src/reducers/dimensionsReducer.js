@@ -1,9 +1,10 @@
-import { CHANGE_DIMENSION } from '../actions';
+import { CHANGE_DIMENSION, ADD_DIMENSION, REMOVE_DIMENSION } from '../actions';
 
 function reducer(state = [], action) {
+  let length = state.length;
+
   switch (action.type) {
     case CHANGE_DIMENSION:
-      let length = state.length;
 
       return state.map((item, index) => {
         if (item.id === action.id) {
@@ -18,9 +19,47 @@ function reducer(state = [], action) {
 
         return item;
       });
+
+    case ADD_DIMENSION:
+      let newId = state[state.length - 1].id + 1;
+      let newItem = {
+        id: newId,
+        "value": 100
+      }
+
+      return state.concat(newItem).map((item, index) => {
+        let coords = calcPoint(item.value, index, length + 1);
+
+        return Object.assign({}, item, {
+          x: coords.x,
+          y: coords.y
+        });
+      });
+
+    case REMOVE_DIMENSION:
+      if (length <= 4) { return state }
+
+      return state.slice(0, -1).map((item, index) => {
+        let coords = calcPoint(item.value, index, length - 1);
+
+        return Object.assign({}, item, {
+          x: coords.x,
+          y: coords.y
+        });
+      });
+
     default:
       return state;
   }
+}
+
+function updateCoordinate(item, index) {
+  let coords = calcPoint(item.value, index, length + 1);
+
+  return Object.assign({}, item, {
+    x: coords.x,
+    y: coords.y
+  });
 }
 
 function calcPoint(radius, index, length) {
