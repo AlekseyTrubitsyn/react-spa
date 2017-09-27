@@ -11,6 +11,7 @@ function Screens(props) {
           id={item.id}
           title={item.title}
           active={item.active}
+          screenName={item.screenName}
         />
       )}
     </main>

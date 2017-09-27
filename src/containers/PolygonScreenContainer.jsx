@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { changeDimension } from '../actions';
-import Polygon from '../components/Polygon';
+import PolygonScreen from '../components/PolygonScreen';
 
 function mapStateToProps(state) {
   return {
@@ -15,6 +15,6 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-const PolygonContainer = connect(mapStateToProps, mapDispatchToProps)(Polygon);
+const PolygonScreenContainer = connect(mapStateToProps, mapDispatchToProps)(PolygonScreen);
 
-export default PolygonContainer;
+export default PolygonScreenContainer;

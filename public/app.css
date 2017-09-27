@@ -99,6 +99,7 @@ body > div {
     border-radius: 5px;
 }
 
+//TODO fix
 .polygon-block__form--blocked::before {
     font-size: 1.5em;
 

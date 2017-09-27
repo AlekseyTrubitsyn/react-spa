@@ -8,6 +8,9 @@ function DimensionInputs(props) {
   const CLASS_NAME_FORM = 'polygon-block__form';
   const CLASS_NAME_BUTTON = 'polygon-block__button';
 
+  // TODO add class "blocked" for fieldset
+  // TODO add functions addInput and removeInput
+
   return (
     <form action="" className={ CLASS_NAME_FORM }>
       <fieldset>
@@ -17,7 +20,7 @@ function DimensionInputs(props) {
                 onClick={ props.removeInput }>-</button>
       </fieldset>
       <fieldset>
-        {props.dimensions.map(item => //{ console.log(item); }
+        {props.dimensions.map(item =>
           <DimensionInput
             key={ item.id }
             id={ item.id }

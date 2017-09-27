@@ -5,7 +5,8 @@
       "title": "SVG интерактивный многоугольник",
       "menuTitle": "SVG Polygon",
       "link": "screen_1",
-      "active": true
+      "active": true,
+      "screenName": "SCREEN_POLYGON"
     },
     {
       "id": 2,
@@ -23,11 +24,41 @@
     }
   ],
   "dimensions": [
-    { "id": 1, "value": 100 },
-    { "id": 2, "value": 100 },
-    { "id": 3, "value": 100 },
-    { "id": 4, "value": 100 },
-    { "id": 5, "value": 100 },
-    { "id": 6, "value": 100 }
+    {
+      "id": 1,
+      "value": 100,
+      "x": "150",
+      "y": "50"
+    },
+    {
+      "id": 2,
+      "value": 100,
+      "x": "237",
+      "y": "100"
+    },
+    {
+      "id": 3,
+      "value": 100,
+      "x": "237",
+      "y": "200"
+    },
+    {
+      "id": 4,
+      "value": 100,
+      "x": "150",
+      "y": "250"
+    },
+    {
+      "id": 5,
+      "value": 100,
+      "x": "64",
+      "y": "201"
+    },
+    {
+      "id": 6,
+      "value": 100,
+      "x": "64",
+      "y": "101"
+     }
   ]
 }
