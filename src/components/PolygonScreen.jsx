@@ -8,21 +8,6 @@ class PolygonScreen extends React.Component {
     super(props);
   }
 
-  handleDrag(e) {
-    e.preventDefault();
-
-    let target = e.currentTarget;
-    let bcr = target.getBoundingClientRect();
-    let leftDelta = bcr.left;
-    let topDelta = bcr.top;
-    let mouseX = e.clientX - leftDelta;
-    let mouseY = e.clientY - topDelta;
-
-    target.ondragstart = () => false;
-
-    console.log(target);
-  }
-
   render() {
     const WIDTH = 300;
     const HEIGHT = 300;
@@ -43,9 +28,11 @@ class PolygonScreen extends React.Component {
               <PolygonDot
                 cx={ item.x }
                 cy={ item.y }
+                id={ item.id }
                 key={ item.id }
                 className={ CLASS_NAME_DOT }
                 fill={ FILL_DOT }
+                onPointDrag={ this.props.onPointDrag }
               />
             )}
           </g>
