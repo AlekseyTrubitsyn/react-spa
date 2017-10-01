@@ -3,15 +3,7 @@ import { connect } from 'react-redux';
 import { changeDimension } from '../actions';
 import PolygonScreen from '../components/PolygonScreen';
 
-// let basePoints;
-// let basePointsSet = false;
-
 function mapStateToProps(state) {
-  // if (!basePointsSet) {
-  //   basePoints = state.slice(0);
-  //   basePointsSet = true;
-  // }
-
   return {
     dimensions: state.dimensions
   }
@@ -20,7 +12,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onChange: (id, value) => { dispatch(changeDimension(id, value)); },
-    onPointDrag: (id, event) => { handlePointDrag(event, id, dispatch); }
+    onPointDrag: (id, value, basePoint, event) => { handlePointDrag(event, id, value, basePoint, dispatch); }
   }
 }
 
@@ -28,47 +20,51 @@ const PolygonScreenContainer = connect(mapStateToProps, mapDispatchToProps)(Poly
 
 export default PolygonScreenContainer;
 
-//TODO fix non-first-drag bugs
-function handlePointDrag(eStart, id, dispatch) {
+function handlePointDrag(eStart, id, value, bPoint, dispatch) {
   const center = { x: 100, y: 100 };
-  const MAX_RANGE = 100;
 
   let target = eStart.currentTarget;
   target.ondragstart = () => false;
 
   let g = target.parentNode;
-  let gBCR = g.getBoundingClientRect();
-
   let svg = g.parentNode;
+  let svgBCR = svg.getBoundingClientRect();
+
   svg.style.cursor = 'pointer';
 
   let centerPoint = {
-    x: gBCR.left + center.x,
-    y: gBCR.top + center.y
+    x: svgBCR.left + center.x,
+    y: svgBCR.top + center.y
   };
+
+  let basePoint = {
+    x: svgBCR.left + +bPoint.x,
+    y: svgBCR.top + +bPoint.y
+  }
 
   let startPoint = {
     x: eStart.clientX,
     y: eStart.clientY
   };
 
-  // let basePoint = {
-  //   x:
-  // }
-
   let dxStartToCenter = getRange(startPoint, centerPoint);
+  let dxBaseToCenter = getRange(basePoint, centerPoint);
 
   function mouseMove(eMoving) {
-    let movingPoint = { x: eMoving.clientX, y: eMoving.clientY };
+    let movingPoint = {
+      x: eMoving.clientX,
+      y: eMoving.clientY
+    };
+
     let projectionPoint = getProjectedPoint(movingPoint);
 
     let dxProjectionToCenter = getRange(projectionPoint, centerPoint);
-    let dxProjectionToStart = getRange(projectionPoint, startPoint);
+    let dxProjectionToBase = getRange(projectionPoint, basePoint);
 
-    if ((dxProjectionToCenter <= MAX_RANGE) && (dxProjectionToStart <= MAX_RANGE)) {
-      console.log(dxProjectionToCenter, dxProjectionToStart, dxStartToCenter);
-      // console.log(changeDimension, id, dxProjectionToCenter)
-      dispatch(changeDimension(id, dxProjectionToCenter));
+    let newValue = 100 * (dxProjectionToCenter / dxBaseToCenter);
+
+    if ((dxProjectionToCenter <= dxBaseToCenter) && (dxProjectionToBase <= dxBaseToCenter)) {
+      dispatch(changeDimension(id, newValue));
     }
   }
 
@@ -80,8 +76,8 @@ function handlePointDrag(eStart, id, dispatch) {
   }
 
   function getProjectedPoint(movingPoint) {
-    let x1 = startPoint.x;
-    let y1 = startPoint.y;
+    let x1 = basePoint.x;
+    let y1 = basePoint.y;
     let x2 = centerPoint.x;
     let y2 = centerPoint.y;
     let x3 = movingPoint.x;
@@ -100,6 +96,4 @@ function handlePointDrag(eStart, id, dispatch) {
     document.removeEventListener('mousemove', mouseMove);
     svg.style.cursor = 'unset';
   });
-
-  return false;
 }

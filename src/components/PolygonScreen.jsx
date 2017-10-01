@@ -33,6 +33,8 @@ class PolygonScreen extends React.Component {
                 className={ CLASS_NAME_DOT }
                 fill={ FILL_DOT }
                 onPointDrag={ this.props.onPointDrag }
+                basePoint={ item.basePoint }
+                currentValue={ item.value }
               />
             )}
           </g>

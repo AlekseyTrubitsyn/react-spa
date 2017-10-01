@@ -29,7 +29,7 @@ class DimensionInput extends React.Component {
         ref="dimensInput"
         key={ this.props.id }
         id={ this.props.id }
-        value={ this.state.value }
+        value={ this.props.value }
         onChange={ this.handleChange }
       />
     )

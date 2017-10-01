@@ -9,7 +9,7 @@ function DimensionInputs(props) {
   const CLASS_NAME_BUTTON = 'polygon-block__button';
   const CLASS_NAME_GROUP_OVERFLOWED = 'polygon-block__fieldset--blocked';
 
-  let overflowed = (props.dimensions.length > 10);
+  let overflowed = (props.dimensions.length > 6);
   let groupClassName = CLASS_NAME_GROUP + ((overflowed) ? (' ' + CLASS_NAME_GROUP_OVERFLOWED) : '');
 
   function addInput(e) {
@@ -31,7 +31,7 @@ function DimensionInputs(props) {
                 onClick={ removeInput }>-</button>
       </fieldset>
       <fieldset className={ groupClassName }>
-        {props.dimensions.slice(0, 10).map(item =>
+        {props.dimensions.slice(0, 6).map(item =>
           <DimensionInput
             key={ item.id }
             id={ item.id }

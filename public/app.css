@@ -130,7 +130,7 @@ body > div {
 
     padding: 30px;
 
-    content: 'Регулировка не более 10 вершин!';
+    content: 'Регулировка не более 6 вершин!';
 
     border-radius: 5px;
     background: rgba(255, 255, 255, .85);

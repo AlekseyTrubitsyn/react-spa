@@ -1,10 +1,9 @@
 import React from 'react';
 
-// TODO basePoint (before changes);
 function PolygonDot(props) {
   function handlePointDrag(event) {
     event.preventDefault();
-    props.onPointDrag(props.id, event);
+    props.onPointDrag(props.id, props.currentValue, props.basePoint, event);
   }
 
   return (
