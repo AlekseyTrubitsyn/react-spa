@@ -11,7 +11,6 @@ function PolygonDot(props) {
       r="4"
       cx={ props.cx }
       cy={ props.cy }
-      key={ props.id }
       className={ props.className }
       fill={ props.fill }
       onMouseDown={ handlePointDrag }

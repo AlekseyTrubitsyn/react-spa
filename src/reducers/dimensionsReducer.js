@@ -30,6 +30,17 @@ function reducer(state = [], action) {
       return state.concat(newItem).map((item, index) => {
         let coords = calcPoint(item.value, index, length + 1);
 
+        if (!item.basePoint) {
+          return Object.assign({}, item, {
+            x: coords.x,
+            y: coords.y,
+            basePoint: {
+              x: coords.x,
+              y: coords.y
+            }
+          });
+        }
+
         return Object.assign({}, item, {
           x: coords.x,
           y: coords.y
@@ -44,7 +55,11 @@ function reducer(state = [], action) {
 
         return Object.assign({}, item, {
           x: coords.x,
-          y: coords.y
+          y: coords.y,
+          basePoint: {
+            x: coords.x,
+            y: coords.y
+          }
         });
       });
 
