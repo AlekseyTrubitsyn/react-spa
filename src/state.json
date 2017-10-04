@@ -10,10 +10,11 @@
     },
     {
       "id": 2,
-      "title": "Экран №2",
-      "menuTitle": "Экран №2",
+      "title": "Календарь",
+      "menuTitle": "Календарь",
       "link": "screen_2",
-      "active": false
+      "active": false,
+      "screenName": "SCREEN_CALENDAR"
     },
     {
       "id": 3,

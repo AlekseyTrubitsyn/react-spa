@@ -65,7 +65,7 @@ body > div {
 
 .screen {
     width: 700px;
-    height: 600px;
+    min-height: 600px;
     margin: 50px auto;
     padding: 40px;
 
@@ -145,6 +145,97 @@ body > div {
 
     vertical-align: middle;
 }
+
+.calendar-widget {
+    width: 300px;
+    margin: 0 auto;
+
+    text-align: center;
+
+    color: white;
+    background: #3f51b5;
+    box-shadow: 2px 2px 30px #aaa;
+}
+
+.calendar-widget__day-name {
+    font-size: 1.2em;
+    font-weight: bold;
+
+    padding: 10px;
+
+    background: #7cb342;
+}
+
+.calendar-widget__day-num {
+    font-size: 3em;
+
+    padding: 30px;
+    padding-bottom: 20px;
+}
+
+.calendar-widget__date {
+    font-size: 1.3em;
+
+    padding-bottom: 10px;
+
+    color: #333;
+    border-bottom: 5px solid #b0b0b0;
+    background: #e0e0e0;
+}
+
+.calendar-widget__month,
+.calendar-widget__year {
+    padding: 10px;
+}
+
+.calendar-widget__title {
+    display: flex;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 15px;
+
+    justify-content: center;
+}
+
+.calendar-widget__table {
+    width: 100%;
+
+    border-bottom: 5px solid;
+    border-collapse: collapse;
+    cursor: default;
+
+    transition: all 0.7s;
+}
+
+.calendar-widget__table td,
+.calendar-widget__table th {
+    padding: 5px;
+}
+
+.calendar-widget__table th {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+.calendar-widget__today {
+    color: black;
+    background: #A0CB72;
+}
+
+.calendar-widget__today:hover {
+    cursor: pointer;
+
+    background: #fff176;
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.3);
+}
+
+.calendar-widget__other-month {
+    color: #bdbdbd;
+    opacity: 0.5;
+}
+
+.calendar-widget__week-end { background: #303f9f; }
 
 .animatedPulse {
     animation: pulse 1.2s ease;
