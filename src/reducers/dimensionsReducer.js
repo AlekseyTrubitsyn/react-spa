@@ -24,7 +24,7 @@ function reducer(state = [], action) {
       let newId = state[state.length - 1].id + 1;
       let newItem = {
         id: newId,
-        "value": 100
+        value: 100
       }
 
       return state.concat(newItem).map((item, index) => {

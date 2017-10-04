@@ -76,12 +76,12 @@ function handlePointDrag(eStart, id, value, bPoint, dispatch) {
   }
 
   function getProjectedPoint(movingPoint) {
-    let x1 = basePoint.x;
-    let y1 = basePoint.y;
-    let x2 = centerPoint.x;
-    let y2 = centerPoint.y;
-    let x3 = movingPoint.x;
-    let y3 = movingPoint.y;
+    let x1 = Math.floor(basePoint.x);
+    let y1 = Math.floor(basePoint.y);
+    let x2 = Math.floor(centerPoint.x);
+    let y2 = Math.floor(centerPoint.y);
+    let x3 = Math.floor(movingPoint.x);
+    let y3 = Math.floor(movingPoint.y);
 
     let k = ((y2-y1) * (x3-x1) - (x2-x1) * (y3-y1)) / ((y2-y1)**2 + (x2-x1)**2);
     return {
