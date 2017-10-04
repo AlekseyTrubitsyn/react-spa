@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DimensionInputsContainer from '../containers/DimensionInputsContainer';
+import DimensionInputsContainer from '../../containers/DimensionInputsContainer';
 import PolygonDot from './PolygonDot';
 
 class PolygonScreen extends React.Component {

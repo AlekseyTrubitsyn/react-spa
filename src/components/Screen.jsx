@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PolygonScreen from './PolygonScreen';
 import PolygonScreenContainer from '../containers/PolygonScreenContainer';
 
 const SCREEN_POLYGON = 'SCREEN_POLYGON';

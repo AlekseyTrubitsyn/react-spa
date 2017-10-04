@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { changeDimension } from '../actions';
-import PolygonScreen from '../components/PolygonScreen';
+import PolygonScreen from '../components/PolygonScreen/PolygonScreen';
 
 function mapStateToProps(state) {
   return {
