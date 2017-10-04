@@ -24,8 +24,6 @@ function handlePointDrag(eStart, id, value, bPoint, dispatch) {
   const center = { x: 100, y: 100 };
 
   let target = eStart.currentTarget;
-  target.ondragstart = () => false;
-
   let g = target.parentNode;
   let svg = g.parentNode;
   let svgBCR = svg.getBoundingClientRect();

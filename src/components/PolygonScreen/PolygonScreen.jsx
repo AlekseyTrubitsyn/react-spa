@@ -13,8 +13,11 @@ class PolygonScreen extends React.Component {
     const HEIGHT = 300;
     const FILL_FIGURE = '#3F51B5';
     const FILL_DOT = '#a0cb72';
+
+    let dotsDragable = (this.props.dimensions.length < 7);
+
     const CLASS_NAME_CONTAINER = "polygon-block";
-    const CLASS_NAME_FIGURE = "polygon-block__figure";
+    const CLASS_NAME_FIGURE = "polygon-block__figure" + ((dotsDragable) ? " polygon-block__figure--dragable" : "");
     const CLASS_NAME_DOT = "polygon-block__dot";
 
     let points = this.props.dimensions.map(item => '' + item.x + ',' + item.y).join(',');
@@ -35,6 +38,7 @@ class PolygonScreen extends React.Component {
                 onPointDrag={ this.props.onPointDrag }
                 basePoint={ item.basePoint }
                 currentValue={ item.value }
+                dotsDragable={ dotsDragable }
               />
             )}
           </g>

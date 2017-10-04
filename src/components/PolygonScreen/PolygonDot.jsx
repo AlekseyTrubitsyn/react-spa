@@ -3,6 +3,9 @@ import React from 'react';
 function PolygonDot(props) {
   function handlePointDrag(event) {
     event.preventDefault();
+    event.currentTarget.ondragstart = () => false;
+
+    if (!props.dotsDragable) return;
 
     let throttledDrag = throttle(props.onPointDrag, 100, this);
     throttledDrag(props.id, props.currentValue, props.basePoint, event);

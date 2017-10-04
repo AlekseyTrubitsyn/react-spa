@@ -1,7 +1,6 @@
 import React from 'react';
 
 function CalendarWidget() {
-  console.log(CalendarWidget);
   const date = new Date();
   const year = date.getFullYear();
   const monthNum = date.getMonth();
@@ -104,10 +103,18 @@ function CalendarBody({ year, monthNum, dayNum }) {
 
   function getNextMonthDays(lastDayOfMonth) {
     const nextMonthDaysCount = (7 - (lastDayOfMonth.getDay() || 7));
-    const firstDayOfNextMonth = new Date(lastDayOfMonth + 86400000);
-    const dayNum = firstDayOfNextMonth.getDate();
 
-    return createArrayOfDays(nextMonthDaysCount, dayNum);
+    return createArrayOfDays(nextMonthDaysCount, 1);
+  }
+
+  function getWeekNumber(d = currentDay) {
+    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
+
+    let yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+    let weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
+
+    return weekNo;
   }
 
   return (
@@ -115,16 +122,16 @@ function CalendarBody({ year, monthNum, dayNum }) {
         <CalendarColgroup />
         <CalendarTableHead />
         <tbody>
-          { slicedDaysArray.map( week => {
+          { slicedDaysArray.map( (week, index) => {
             return (
-              <tr>
+              <tr key={ 'week_' + index }>
                 { week.map( day => {
                   let otherMonth = "calendar-widget__other-month";
                   let currentDay = "calendar-widget__today";
                   let className = (day.isOtherMonth) ? otherMonth : (day.isCurrentDay) ? currentDay : "";
 
                   return (
-                    <td className={ className } >{ day.number }</td>
+                    <td key={ 'week_' + index + ' day ' + day.number } className={ className } >{ day.number }</td>
                   )
                 })}
               </tr>
