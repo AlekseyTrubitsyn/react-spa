@@ -114,13 +114,13 @@ class CalendarBody extends React.Component {
         <svg className="paginator-svg" width="60" height="60" onClick={ this.handleMonthDecrease }>
           <g className="paginator">
             <circle cx="30" cy="30" r="30"></circle>
-            <path className="paginator__arrow" d="M 37 17 L 22 30 L 37 43" stroke="white" strokeWidth="5"/>
+            <path className="paginator__arrow" d="M 37 17 L 22 30 L 37 43" stroke="white" strokeWidth="8"/>
           </g>
         </svg>
         <svg className="paginator-svg-right" width="60" height="60" onClick={ this.handleMonthIncrease }>
           <g className="paginator paginator-right">
             <circle cx="30" cy="30" r="30"></circle>
-            <path className="paginator__arrow" d="M 23 17 L 38 30 L 23 43" stroke="white" strokeWidth="5"/>
+            <path className="paginator__arrow" d="M 23 17 L 38 30 L 23 43" stroke="white" strokeWidth="8"/>
           </g>
         </svg>
         <div className="calendar-widget__sub-header">

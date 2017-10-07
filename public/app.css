@@ -241,18 +241,18 @@ body > div {
 
 .calendar-body .paginator-svg {
     position: absolute;
-    left: -60px;
-    top: 40%;
+    left: -65px;
+    top: 5px;
 }
 
 .calendar-body .paginator-svg-right {
     position: absolute;
-    right: -60px;
-    top: 40%;
+    right: -65px;
+    top: 5px;
 }
 
 .paginator {
-    transform: translateX(45%);
+    transform: translateX(55%);
     fill: #1565c0;
     transition: all 0.35s ease-out;
     cursor: pointer;
@@ -260,12 +260,12 @@ body > div {
 }
 
 .paginator-right {
-    transform: translateX(-45%);
+    transform: translateX(-55%);
 }
 
 .paginator:hover {
     transform: none;
-    fill: #A0CB72;
+    fill: #7CB342;
 }
 
 .animatedPulse {
