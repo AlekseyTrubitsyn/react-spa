@@ -237,6 +237,37 @@ body > div {
 
 .calendar-widget__week-end { background: #303f9f; }
 
+.calendar-body { position: relative; }
+
+.calendar-body .paginator-svg {
+    position: absolute;
+    left: -60px;
+    top: 40%;
+}
+
+.calendar-body .paginator-svg-right {
+    position: absolute;
+    right: -60px;
+    top: 40%;
+}
+
+.paginator {
+    transform: translateX(45%);
+    fill: #1565c0;
+    transition: all 0.35s ease-out;
+    cursor: pointer;
+    box-shadow: 2px 2px 15px #333;
+}
+
+.paginator-right {
+    transform: translateX(-45%);
+}
+
+.paginator:hover {
+    transform: none;
+    fill: #A0CB72;
+}
+
 .animatedPulse {
     animation: pulse 1.2s ease;
 }
