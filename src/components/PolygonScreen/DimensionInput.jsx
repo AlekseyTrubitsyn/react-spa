@@ -15,8 +15,8 @@ class DimensionInput extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange() {
-    let v = +this.refs.dimensInput.value;
+  handleChange(e) {
+    let v = +e.currentTarget.value;
 
     this.setState({ value: v });
     this.props.onChange(this.props.id, v);
@@ -26,7 +26,6 @@ class DimensionInput extends React.Component {
     return (
       <input
         type="range"
-        ref="dimensInput"
         key={ this.props.id }
         id={ this.props.id }
         value={ this.props.value }
