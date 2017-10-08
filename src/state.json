@@ -18,9 +18,17 @@
     },
     {
       "id": 3,
-      "title": "Экран №3",
-      "menuTitle": "Экран №3",
+      "title": "Каталог товаров",
+      "menuTitle": "Каталог",
       "link": "screen_3",
+      "active": false,
+      "screenName": "SCREEN_CATALOG"
+    },
+    {
+      "id": 4,
+      "title": "Экран №4",
+      "menuTitle": "Экран №4",
+      "link": "screen_4",
       "active": false
     }
   ],
@@ -84,6 +92,6 @@
         "x": "64",
         "y": "101"
       }
-     }
+    }
   ]
 }
