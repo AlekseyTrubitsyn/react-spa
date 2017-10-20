@@ -122,7 +122,6 @@ class CatalogScreen extends React.Component {
 
   render() {
     return this.state.data.length > 0 ? this.renderMain() : this.renderDefault();
-    // return this.renderDefault();
   }
 }
 

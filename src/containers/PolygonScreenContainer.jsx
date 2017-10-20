@@ -21,8 +21,6 @@ const PolygonScreenContainer = connect(mapStateToProps, mapDispatchToProps)(Poly
 export default PolygonScreenContainer;
 
 function handlePointDrag(eStart, id, value, bPoint, dispatch) {
-  const center = { x: 100, y: 100 };
-
   let target = eStart.currentTarget;
   let g = target.parentNode;
   let svg = g.parentNode;
@@ -31,8 +29,8 @@ function handlePointDrag(eStart, id, value, bPoint, dispatch) {
   svg.style.cursor = 'pointer';
 
   let centerPoint = {
-    x: svgBCR.left + center.x,
-    y: svgBCR.top + center.y
+    x: svgBCR.left + svgBCR.width / 2,
+    y: svgBCR.top + svgBCR.height / 2
   };
 
   let basePoint = {
